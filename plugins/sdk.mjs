@@ -1,16 +1,18 @@
 import fp from "fastify-plugin";
 
-import { Yearn, AssetService } from "@yfi/sdk";
+import { Yearn, AssetService } from "@bombmoney/ybomb-sdk";
 import { JsonRpcProvider } from "@ethersproject/providers";
 import { cache } from "./caching.mjs";
 import ms from "ms";
 
-const chains = [1, 250];
+const chains = [1, 56, 250];
 
 const providerForChain = (chain) => {
   switch (chain) {
     case 1:
       return new JsonRpcProvider(process.env.WEB3_HTTP_PROVIDER);
+    case 56:
+      return new JsonRpcProvider("https://bsc1.bomb.money/");
     case 250:
       return new JsonRpcProvider("https://rpc.ftm.tools/");
   }

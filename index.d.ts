@@ -1,4 +1,4 @@
-import { Yearn } from "@yfi/sdk";
+import { Yearn } from "@bombmoney/ybomb-sdk";
 
 declare module "fastify" {
   type AbstractKey = { id: string; segment: string } | string;
